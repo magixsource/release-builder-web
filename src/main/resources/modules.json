@@ -1,0 +1,200 @@
+[
+    {
+        "id": "base",
+        "name": "base-module",
+        "resources": [
+            {
+                "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\css\\sinobest.base.css",
+                "type": "CSS"
+            },
+            {
+                "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.base.js",
+                "type": "JAVASCRIPT"
+            },
+            {
+                "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.validate.js",
+                "type": "JAVASCRIPT"
+            },
+            {
+                "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.tools.js",
+                "type": "JAVASCRIPT"
+            },
+            {
+                "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.error.js",
+                "type": "JAVASCRIPT"
+            }
+        ]
+    },
+    {
+        "dependencies": [
+            {
+                "id": "base",
+                "name": "base-module",
+                "resources": [
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\css\\sinobest.base.css",
+                        "type": "CSS"
+                    },
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.base.js",
+                        "type": "JAVASCRIPT"
+                    },
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.validate.js",
+                        "type": "JAVASCRIPT"
+                    },
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.tools.js",
+                        "type": "JAVASCRIPT"
+                    },
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.error.js",
+                        "type": "JAVASCRIPT"
+                    }
+                ]
+            }
+        ],
+        "id": "input",
+        "name": "input-module",
+        "resources": [
+            {
+                "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\css\\sinobest.text.css",
+                "type": "CSS"
+            },
+            {
+                "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\css\\sinobest.disabled.css",
+                "type": "CSS"
+            },
+            {
+                "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\css\\sinobest.readonly.css",
+                "type": "CSS"
+            },
+            {
+                "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.text.js",
+                "type": "JAVASCRIPT"
+            }
+        ]
+    },
+    {
+        "dependencies": [
+            {
+                "id": "base",
+                "name": "base-module",
+                "resources": [
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\css\\sinobest.base.css",
+                        "type": "CSS"
+                    },
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.base.js",
+                        "type": "JAVASCRIPT"
+                    },
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.validate.js",
+                        "type": "JAVASCRIPT"
+                    },
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.tools.js",
+                        "type": "JAVASCRIPT"
+                    },
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.error.js",
+                        "type": "JAVASCRIPT"
+                    }
+                ]
+            }
+        ],
+        "id": "radio",
+        "name": "radio-module",
+        "resources": [
+            {
+                "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.radio.js",
+                "type": "JAVASCRIPT"
+            },
+            {
+                "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\css\\sinobest.radio.css",
+                "type": "CSS"
+            }
+        ]
+    },
+    {
+        "dependencies": [
+            {
+                "id": "base",
+                "name": "base-module",
+                "resources": [
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\css\\sinobest.base.css",
+                        "type": "CSS"
+                    },
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.base.js",
+                        "type": "JAVASCRIPT"
+                    },
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.validate.js",
+                        "type": "JAVASCRIPT"
+                    },
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.tools.js",
+                        "type": "JAVASCRIPT"
+                    },
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.error.js",
+                        "type": "JAVASCRIPT"
+                    }
+                ]
+            }
+        ],
+        "id": "checkbox",
+        "name": "checkbox-module",
+        "resources": [
+            {
+                "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.checkbox.js",
+                "type": "JAVASCRIPT"
+            }
+        ]
+    },
+    {
+        "dependencies": [
+            {
+                "id": "base",
+                "name": "base-module",
+                "resources": [
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\css\\sinobest.base.css",
+                        "type": "CSS"
+                    },
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.base.js",
+                        "type": "JAVASCRIPT"
+                    },
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.validate.js",
+                        "type": "JAVASCRIPT"
+                    },
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.tools.js",
+                        "type": "JAVASCRIPT"
+                    },
+                    {
+                        "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.error.js",
+                        "type": "JAVASCRIPT"
+                    }
+                ]
+            }
+        ],
+        "id": "select",
+        "name": "select-module",
+        "resources": [
+            {
+                "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\js\\app\\sinobest.select.js",
+                "type": "JAVASCRIPT"
+            },
+            {
+                "source": "E:\\林鹏\\f\\GitHub\\node_workspace\\frontend\\JS控件\\css\\sinobest.select.css",
+                "type": "CSS"
+            }
+        ]
+    }
+]

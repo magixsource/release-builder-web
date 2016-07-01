@@ -5,5 +5,16 @@
 </head>
 <body>
 <h1>Hello World!</h1>
+@args List<gl.linpeng.tools.builder.module.LocalStorageModule> modules
+<form name="form" id="form" action="/build" method="post">
+	<ul>
+		@for(gl.linpeng.tools.builder.module.LocalStorageModule module:modules) {
+		    <li><input type="checkbox" name="checkbox" value="@module.getId()">@module.getName()</li>
+		}
+	</ul>
+	<input type="submit" />
+</form>
+
+
 </body>
 </html>
