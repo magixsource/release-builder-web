@@ -2,11 +2,10 @@ package gl.linpeng;
 
 import gl.linpeng.tools.builder.model.LocalStorageBuildModel;
 import gl.linpeng.tools.builder.module.LocalStorageModule;
+import gl.linpeng.tools.builder.result.BuildResult;
 import gl.linpeng.tools.builder.service.Builder;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,6 +16,7 @@ import javax.inject.Inject;
 
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.PostAction;
+import org.osgl.mvc.result.RenderBinary;
 import org.osgl.mvc.result.Result;
 
 import act.boot.app.RunApp;
@@ -35,7 +35,7 @@ public class App {
 	@Inject
 	private Builder buildService;
 
-	private DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS");
+//	private DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS");
 
 	/**
 	 * 这里应该构建一个页面，给到所有的MODULES，让用户定义勾选
@@ -55,11 +55,12 @@ public class App {
 
 	/**
 	 * 这里接收到用户定制的MODULE数据，并调用buildService，响应结果给到前端
+	 * @return 
 	 * 
 	 * @throws IOException
 	 */
 	@PostAction("/build")
-	public void takeStringArray(String[] checkbox) throws IOException {
+	public Result takeStringArray(String[] checkbox) throws IOException {
 		List<LocalStorageModule> buildModules = new ArrayList<LocalStorageModule>();
 		String text = org.apache.commons.io.IOUtils.toString(ClassLoader
 				.getSystemResourceAsStream("modules.json"));
@@ -77,7 +78,9 @@ public class App {
 		}
 		LocalStorageBuildModel model = new LocalStorageBuildModel();
 		model.setModules(buildModules);
-		buildService.build(model);
+		BuildResult result = buildService.build(model);
+		
+		return new RenderBinary(result.getFile());
 	}
 
 	public static void main(String[] args) throws Exception {
