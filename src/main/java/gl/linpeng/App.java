@@ -78,7 +78,7 @@ public class App {
 		}
 		LocalStorageBuildModel model = new LocalStorageBuildModel();
 		model.setModules(buildModules);
-		BuildResult result = buildService.build(model);
+		BuildResult<LocalStorageModule> result = buildService.build(model);
 		
 		return new RenderBinary(result.getFile());
 	}
