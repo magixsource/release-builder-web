@@ -5,6 +5,7 @@ import gl.linpeng.tools.builder.module.LocalStorageModule;
 import gl.linpeng.tools.builder.result.BuildResult;
 import gl.linpeng.tools.builder.service.Builder;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,8 +22,6 @@ import org.osgl.mvc.result.Result;
 
 import act.boot.app.RunApp;
 import act.view.RenderTemplate;
-
-import com.alibaba.fastjson.JSON;
 
 /**
  * 模块定制服务的入口
@@ -42,10 +41,13 @@ public class App {
 	 */
 	@GetAction
 	public Result index() throws IOException {
-		String text = org.apache.commons.io.IOUtils.toString(ClassLoader
-				.getSystemResourceAsStream("modules.json"));
-		List<LocalStorageModule> modules = JSON.parseArray(text,
-				LocalStorageModule.class);
+		// 从静态JSON文件构建模型,适合已构建过并相对比较固定的场景
+		// List<LocalStorageModule> moduels = ModuleDataSource
+		// .fromFile("modules.json");
+
+		// 从本地文件自动构建模型(后面需要把绝对路径改为相对路径)
+		List<LocalStorageModule> modules = ModuleDataSource.fromRoot(new File(
+				"E:\\JS控件\\dist"));
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("modules", modules);
 		return new RenderTemplate(map);
@@ -53,19 +55,19 @@ public class App {
 
 	/**
 	 * 这里接收到用户定制的MODULE数据，并调用buildService，响应结果给到前端
-	 * @return 
+	 * 
+	 * @return
 	 * 
 	 * @throws IOException
 	 */
 	@PostAction("/build")
 	public Result takeStringArray(String[] checkbox) throws IOException {
 		List<LocalStorageModule> buildModules = new ArrayList<LocalStorageModule>();
-		String text = org.apache.commons.io.IOUtils.toString(ClassLoader
-				.getSystemResourceAsStream("modules.json"));
+		// 需要把首次构建成功的模型缓存起来
+		List<LocalStorageModule> modules = ModuleDataSource.fromRoot(new File(
+				"E:\\JS控件\\dist"));
 
-		List<LocalStorageModule> moduels = JSON.parseArray(text,
-				LocalStorageModule.class);
-		Map<String, LocalStorageModule> map = moduels.stream().collect(
+		Map<String, LocalStorageModule> map = modules.stream().collect(
 				Collectors.toMap(LocalStorageModule::getId, (p) -> p));
 
 		for (String modelName : checkbox) {
@@ -77,7 +79,7 @@ public class App {
 		LocalStorageBuildModel model = new LocalStorageBuildModel();
 		model.setModules(buildModules);
 		BuildResult<LocalStorageModule> result = buildService.build(model);
-		
+
 		return new RenderBinary(result.getFile());
 	}
 
