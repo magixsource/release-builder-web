@@ -35,8 +35,6 @@ public class App {
 	@Inject
 	private Builder buildService;
 
-//	private DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS");
-
 	/**
 	 * 这里应该构建一个页面，给到所有的MODULES，让用户定义勾选
 	 * 
