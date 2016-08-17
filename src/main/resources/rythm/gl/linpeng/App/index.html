@@ -12,13 +12,45 @@
 </header>
 @args List<gl.linpeng.tools.builder.module.LocalStorageModule> modules
 <form name="form" id="form" action="/build" method="post">
-	<label for="form-module-fieldset"><h2>Module Options</h2></label>
-	<div class="form-module-fieldset"  id="form-module-fieldset">
-		<ul>
-			@for(gl.linpeng.tools.builder.module.LocalStorageModule module:modules) {
-			    <li><input type="checkbox" name="checkbox" value="@module.getId()"  id="checkbox-module-@module.getId()"><label for="checkbox-module-@module.getId()">@module.getName()</label></li>
-			}
-		</ul>
+	<div class="container">
+		<div class="sub-container">
+			<label for="form-module-fieldset-tools"><h2>Tool Modules </h2></label>
+			<div class="form-module-fieldset"  id="form-module-fieldset-tools">
+				<ul>
+					@for(gl.linpeng.tools.builder.module.LocalStorageModule module:modules) {
+							@if(module.getType() == "tools") {
+				    			<li><input type="checkbox" name="checkbox" value="@module.getId()"  id="checkbox-module-@module.getId()"><label for="checkbox-module-@module.getId()">@module.getName()</label></li>
+							}
+					}
+				</ul>
+			</div>
+		</div>
+	
+		<div class="sub-container">
+			<label for="form-module-fieldset-basic"><h2>Basic Modules </h2></label>
+			<div class="form-module-fieldset"  id="form-module-fieldset-basic">
+				<ul>
+					@for(gl.linpeng.tools.builder.module.LocalStorageModule module:modules) {
+							@if(module.getType() == "basic") {
+				    			<li><input type="checkbox" name="checkbox" value="@module.getId()"  id="checkbox-module-@module.getId()"><label for="checkbox-module-@module.getId()">@module.getName()</label></li>
+							}
+					}
+				</ul>
+			</div>
+		</div>
+	
+		<div class="sub-container">
+			<label for="form-module-fieldset-ext"><h2>Ext Modules </h2></label>
+			<div class="form-module-fieldset"  id="form-module-fieldset-ext">
+				<ul>
+					@for(gl.linpeng.tools.builder.module.LocalStorageModule module:modules) {
+							@if(module.getType() == "ext") {
+				    			<li><input type="checkbox" name="checkbox" value="@module.getId()"  id="checkbox-module-@module.getId()"><label for="checkbox-module-@module.getId()">@module.getName()</label></li>
+							}
+					}
+				</ul>
+			</div>
+		</div>
 	</div>
 	<p class="text-center">
 	<button name="init-project" type="submit" class="btn-primary" role="button">
