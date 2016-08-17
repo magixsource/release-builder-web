@@ -46,6 +46,11 @@ form{
 	list-style: none;
 }
 
+.sub-container{
+	  float:left;
+	  width:28%;
+}
+
 .btn-primary:hover, .btn-primary:focus {
     background-color: #51862f;
     background-position: 0 -15px;
