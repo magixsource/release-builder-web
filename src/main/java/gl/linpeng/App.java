@@ -1,5 +1,8 @@
 package gl.linpeng;
 
+import gl.linpeng.tools.builder.filters.CopyOperation;
+import gl.linpeng.tools.builder.filters.MinifyOperation;
+import gl.linpeng.tools.builder.filters.UglifyOperation;
 import gl.linpeng.tools.builder.model.LocalStorageBuildModel;
 import gl.linpeng.tools.builder.module.LocalStorageModule;
 import gl.linpeng.tools.builder.result.BuildResult;
@@ -76,8 +79,16 @@ public class App {
 				buildModules.add(module);
 			}
 		}
+
 		LocalStorageBuildModel model = new LocalStorageBuildModel();
 		model.setModules(buildModules);
+
+		if (buildService.loadOperations() == null
+				|| buildService.loadOperations().isEmpty()) {
+			buildService.registerOperation(new MinifyOperation());
+			buildService.registerOperation(new UglifyOperation());
+			buildService.registerOperation(new CopyOperation());
+		}
 		BuildResult<LocalStorageModule> result = buildService.build(model);
 
 		return new RenderBinary(result.getFile());
