@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Hello World App</title>
+<title>INITIALIZER - bootstrap your application now</title>
+<link rel="stylesheet" type="text/css" href="/asset/css/style.css" />
 </head>
 <body>
-<h1>Hello World!</h1>
+<header>
+	<h1>INITIALIZER!
+			 <small>bootstrap your application now</small>
+	</h1>
+</header>
 @args List<gl.linpeng.tools.builder.module.LocalStorageModule> modules
 <form name="form" id="form" action="/build" method="post">
-	<ul>
-		@for(gl.linpeng.tools.builder.module.LocalStorageModule module:modules) {
-		    <li><input type="checkbox" name="checkbox" value="@module.getId()">@module.getName()</li>
-		}
-	</ul>
-	<input type="submit" />
+	<label for="form-module-fieldset"><h2>Module Options</h2></label>
+	<div class="form-module-fieldset"  id="form-module-fieldset">
+		<ul>
+			@for(gl.linpeng.tools.builder.module.LocalStorageModule module:modules) {
+			    <li><input type="checkbox" name="checkbox" value="@module.getId()"  id="checkbox-module-@module.getId()"><label for="checkbox-module-@module.getId()">@module.getName()</label></li>
+			}
+		</ul>
+	</div>
+	<p class="text-center">
+	<button name="init-project" type="submit" class="btn-primary" role="button">
+		<kbd>:D</kbd> Init !
+	</button>
+	</p>
 </form>
-
-
 </body>
 </html>
