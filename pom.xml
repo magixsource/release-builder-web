@@ -70,6 +70,13 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    
+    <dependency>
+      <groupId>gl.linpeng</groupId>
+      <artifactId>release-builder</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    
 	<dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act</artifactId>
