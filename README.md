@@ -10,7 +10,7 @@ release-builder-web supported build module from static json file or a file folde
 
 from file:
 
-    List<LocalStorageModule> moduels = ModuleDataSource.fromFile("modules.json");
+    List<LocalStorageModule> modules = ModuleDataSource.fromFile("modules.json");
 > modules.json example see: [https://github.com/magixsource/release-builder-web/blob/master/src/main/resources/modules.json](https://github.com/magixsource/release-builder-web/blob/master/src/main/resources/modules.json "modules.json")
 
 from file folder:
