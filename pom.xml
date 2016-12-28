@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>gl.linpeng</groupId>
   <artifactId>release-builder-web</artifactId>
-  <packaging>war</packaging>
+ <!--  <packaging>jar</packaging> -->
   <version>1.0-SNAPSHOT</version>
   <name>release-builder-web</name>
   <url>http://maven.apache.org</url>
@@ -15,6 +15,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <docker.registry>http://127.0.0.1:5555/</docker.registry>
   </properties>
   <build>
     <resources>
@@ -22,6 +23,15 @@
         <directory>src/main/resources</directory>
         <filtering>true</filtering>
       </resource>
+      <!-- Add Dockerfile -->
+      <resource>
+      	<directory>${project.basedir}</directory>
+      	<filtering>true</filtering>
+      	<includes>
+      		<include>**/Dockerfile</include>
+      	</includes>
+      </resource>
+
     </resources>
 
     <pluginManagement>
@@ -56,12 +66,118 @@
               <argument>-Xmx512m</argument>
               <argument>-classpath</argument>
               <classpath/>
-              <argument>com.mycom.App</argument>
+              <argument>gl.linpeng.App</argument>
             </arguments>
           </configuration>
         </plugin>
+        <!-- Add maven assembly plugin -->
+        <!-- <plugin>
+        	<artifactId>maven-assembly-plugin</artifactId>
+        	<configuration>
+        		<descriptorRefs>
+        			<descriptorRef>jar-with-dependencies</descriptorRef>
+        		</descriptorRefs>
+        		<archive>
+        			<manifest>
+        				<mainClass>gl.linpeng.App</mainClass>
+        			</manifest>
+        		</archive>
+        	</configuration>
+        	<executions>
+        		<execution>
+        			<id>make-assembly</id>
+        			<phase>package</phase>
+        			<goals>
+        				<goal>single</goal>
+        			</goals>
+        		</execution>
+        	</executions>
+        </plugin> -->
+        
+        <!-- Add maven dependency plugin -->
+   <!--      <plugin>
+        	<groupId>org.apache.maven.plugins</groupId>
+        	<artifactId>maven-dependency-plugin</artifactId>
+        	<executions>
+        		<execution>
+        			<goals>
+        				<goal>copy</goal>
+        			</goals>
+        			<configuration>
+        				<artifactItems>
+        					<artifactItem>
+        						<groupId>gl.linpeng</groupId>
+        						<artifactId>release-builder-web</artifactId>
+        						<version>${project.version}</version>
+        						<type>jar</type>
+        						<outputDirectory>${project.build.directory}</outputDirectory>
+        						<destFileName>${project.artifactId}-${project.version}.jar</destFileName>
+        					</artifactItem>
+        				</artifactItems>
+        			</configuration>
+        		</execution>
+        	</executions>
+        </plugin> -->
+        <!-- Add docker maven plugin -->
+       <!--  <plugin>
+        	<groupId>com.spotify</groupId>
+        	<artifactId>docker-maven-plugin</artifactId>
+        	<version>0.2.3</version>
+        	<executions>
+        		<execution>
+	        		<phase>package</phase>
+	        		<goals>
+	        			<goal>build</goal>
+	        		</goals>
+        		</execution>
+        	</executions>
+        	<configuration>
+        		<dockerDirectory>${project.build.directory}\classes</dockerDirectory>
+        		<imageName>${docker.registry}linpeng/${project.artifactId}:lastest</imageName>
+        		<pushImage>true</pushImage>
+        		<resources>
+        			<resource>
+				      	<targetPath>/</targetPath>
+				      	<directory>${basedir}</directory>
+				      	<excludes>
+				      		<exclude>target/**/*</exclude>
+				      		<exclude>pom.xml</exclude>
+				      		<exclude>*.iml</exclude>
+				      	</excludes>
+			      </resource>
+			      <resource>
+			      	<targetPath>/</targetPath>
+			      	<directory>${project.build.directory}</directory>
+			      	<include>${project.artifactId}-${project.version}.jar</include>
+			      </resource>
+        		</resources>
+        	</configuration>
+        </plugin> -->
       </plugins>
     </pluginManagement>
+    <plugins>
+    	<plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-assembly-plugin</artifactId>
+	        <version>2.5.5</version>
+	        <executions>
+	          <execution>
+	            <id>make-assembly</id>
+	            <phase>package</phase>
+	            <goals>
+	              <goal>single</goal>
+	            </goals>
+	            <configuration>
+	              <appendAssemblyId>false</appendAssemblyId>
+	              <descriptors>
+	                <descriptor>src/assembly/assembly.xml</descriptor>
+	              </descriptors>
+	              <outputDirectory>${project.build.directory}/dist/</outputDirectory>
+	            </configuration>
+	          </execution>
+	        </executions>
+	      </plugin>
+    </plugins>
   </build>
   <dependencies>
     <dependency>
