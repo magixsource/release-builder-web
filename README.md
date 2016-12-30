@@ -21,3 +21,12 @@ from file folder:
 
 #Shortcut
 ![release-builder-web-shortcut.png](https://github.com/magixsource/release-builder-web/blob/master/release-builder-web-shortcut.png)
+
+#Command
+	
+	// Run application in maven
+	mvn exec:ecec
+	
+	// Package application and install to docker registry
+	mvn clean package docker:build
+ 
