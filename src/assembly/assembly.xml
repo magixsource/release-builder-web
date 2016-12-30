@@ -3,25 +3,12 @@
   <id>dist</id>
 
   <formats>
-    <format>dir</format>
+    <format>zip</format>
   </formats>
 
   <includeBaseDirectory>false</includeBaseDirectory>
 
   <fileSets>
-    <fileSet>
-      <directory>${project.basedir}</directory>
-      <outputDirectory></outputDirectory>
-      <includes>
-      	<include>src/**</include>
-      	<include>assembly.xml</include>
-      	<include>pom.xml</include>
-      </includes>
-      <excludes>
-      	<exclude>target/**</exclude>
-      	<exclude>.setting/**</exclude>
-      </excludes>
-    </fileSet>
     <fileSet>
       <directory>${project.build.directory}</directory>
       <outputDirectory></outputDirectory>
